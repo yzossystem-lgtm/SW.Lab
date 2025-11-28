@@ -1,47 +1,340 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#B91C1C" />
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SW.LAB - Мастер Окон</title>
+    <meta name="theme-color" content="#B91C1C">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: '#B91C1C', // Red-700
-              secondary: '#1F2937', // Gray-800
-            },
-            fontFamily: {
-              sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#B91C1C', // Red-700
+                        secondary: '#1F2937', // Gray-800
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
             }
-          }
         }
-      }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: 'Inter', sans-serif;
-      }
+        body { font-family: 'Inter', sans-serif; }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
-  }
-}
-</script>
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<body class="bg-gray-50 text-gray-900 antialiased selection:bg-red-100 selection:text-red-900">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white py-5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="font-extrabold text-2xl tracking-tighter text-secondary">
+                    SW<span class="text-primary">.</span>LAB
+                </span>
+            </div>
+            
+            <button onclick="handleRedirect()" class="group flex items-center gap-2 text-sm font-semibold text-secondary hover:text-primary transition-colors border-2 border-gray-200 hover:border-primary rounded-full px-4 py-2 cursor-pointer">
+                <i data-lucide="play" class="w-4 h-4 fill-current"></i>
+                <span class="hidden sm:inline">Смотреть видео</span>
+                <span class="sm:hidden">Видео</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Spacer -->
+    <div class="h-20"></div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 pt-8 pb-16 md:pt-20">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div class="flex flex-col space-y-6 md:space-y-8">
+                
+                <!-- H1 -->
+                <h1 class="order-1 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-secondary">
+                    С нуля до мастера окон за 30 дней: как зарабатывать от <span class="text-primary whitespace-nowrap">3000€ в Европе?</span>
+                </h1>
+
+                <!-- Mobile Image (Order 2 on Mobile) -->
+                <div class="order-2 md:hidden rounded-2xl overflow-hidden shadow-xl aspect-video relative group">
+                    <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
+                    <img src="https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg" alt="Мастер ремонтирует окно" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Subheadline (Order 3) -->
+                <p class="order-3 text-lg md:text-xl text-gray-600 leading-relaxed border-l-4 border-primary pl-4">
+                    Получите доступ к бесплатному видео, где мы раскрываем реальный путь входа в востребованную профессию мастера окон, доходы, ошибки новичков и стратегию выхода на стабильный заработок.
+                </p>
+
+                <!-- CTA (Order 4) -->
+                <div class="order-4 space-y-3">
+                    <button onclick="handleRedirect()" class="w-full md:w-auto text-lg px-8 py-4 bg-primary hover:bg-red-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 shadow-red-200/50">
+                        Получить доступ к видео
+                    </button>
+                    <p class="text-xs text-gray-500 flex items-center gap-1 justify-center md:justify-start">
+                        <i data-lucide="check-circle-2" class="w-3 h-3 text-green-500"></i>
+                        Видео откроется сразу после регистрации
+                    </p>
+                </div>
+            </div>
+
+            <!-- Desktop Image -->
+            <div class="hidden md:block relative">
+                <div class="absolute -inset-4 bg-primary/5 rounded-3xl transform rotate-3"></div>
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] transform transition hover:-translate-y-1 duration-500">
+                    <img src="https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg" alt="Мастер за работой" class="w-full h-full object-cover">
+                    <!-- Floating Badge -->
+                    <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur shadow-lg rounded-xl p-4 flex items-center gap-3 max-w-xs">
+                        <div class="bg-green-100 p-2 rounded-full text-green-600">
+                            <i data-lucide="trending-up" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 uppercase font-semibold">Спрос на услуги</p>
+                            <p class="font-bold text-secondary">Растет на 15% в год</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-primary font-bold uppercase tracking-wider text-sm mb-2 block">Содержание</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary">Что вы получите в видео?</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Items -->
+                <div class="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-red-100 hover:shadow-lg hover:shadow-red-50/50 transition-all">
+                    <div class="shrink-0 mt-1 bg-white p-2 rounded-lg shadow-sm h-min text-primary"><i data-lucide="trending-up"></i></div>
+                    <p class="text-gray-700 font-medium">Как работает рынок оконного сервиса в Европе и почему спрос растёт.</p>
+                </div>
+                
+                <div class="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-red-100 hover:shadow-lg hover:shadow-red-50/50 transition-all">
+                    <div class="shrink-0 mt-1 bg-white p-2 rounded-lg shadow-sm h-min text-primary"><i data-lucide="briefcase"></i></div>
+                    <p class="text-gray-700 font-medium">Математика доходов мастера: почему 3000€ — реалистичная цифра.</p>
+                </div>
+
+                <div class="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-red-100 hover:shadow-lg hover:shadow-red-50/50 transition-all">
+                    <div class="shrink-0 mt-1 bg-white p-2 rounded-lg shadow-sm h-min text-primary"><i data-lucide="award"></i></div>
+                    <p class="text-gray-700 font-medium">Какие навыки нужны и как их можно получить за 30 дней без опыта.</p>
+                </div>
+
+                <div class="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-red-100 hover:shadow-lg hover:shadow-red-50/50 transition-all">
+                    <div class="shrink-0 mt-1 bg-white p-2 rounded-lg shadow-sm h-min text-primary"><i data-lucide="users"></i></div>
+                    <p class="text-gray-700 font-medium">Где берет заказы мастер окон и как быстро выйти на первые деньги.</p>
+                </div>
+
+                <div class="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-red-100 hover:shadow-lg hover:shadow-red-50/50 transition-all">
+                    <div class="shrink-0 mt-1 bg-white p-2 rounded-lg shadow-sm h-min text-primary"><i data-lucide="alert-triangle"></i></div>
+                    <p class="text-gray-700 font-medium">5 типичных ошибок новичков, которые приводят к потерям и возвратам.</p>
+                </div>
+
+                <div class="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-red-100 hover:shadow-lg hover:shadow-red-50/50 transition-all">
+                    <div class="shrink-0 mt-1 bg-white p-2 rounded-lg shadow-sm h-min text-primary"><i data-lucide="check-circle-2"></i></div>
+                    <p class="text-gray-700 font-medium">Как выбрать обучение, которое действительно даёт навык, а не теорию.</p>
+                </div>
+
+                <div class="flex gap-4 p-6 rounded-2xl bg-gray-50 border border-gray-100 hover:border-red-100 hover:shadow-lg hover:shadow-red-50/50 transition-all md:col-span-2 lg:col-span-1 lg:col-start-2">
+                    <div class="shrink-0 mt-1 bg-white p-2 rounded-lg shadow-sm h-min text-primary"><i data-lucide="award"></i></div>
+                    <p class="text-gray-700 font-medium">Пошаговый план входа в профессию в зависимости от города и региона.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <button onclick="handleRedirect()" class="inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-10 py-4 text-lg bg-primary hover:bg-red-800 text-white shadow-lg hover:shadow-xl active:scale-95">
+                    Получить доступ к видео
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-secondary text-center mb-10">
+                Кому подойдёт это видео?
+            </h2>
+            
+            <div class="space-y-4">
+                <div class="flex items-center gap-4 bg-white p-5 rounded-xl shadow-sm border-l-4 border-transparent hover:border-primary transition-all">
+                    <div class="bg-red-50 p-2 rounded-full text-primary shrink-0"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                    <span class="text-lg text-gray-800 font-medium">Тем, кто хочет легально зарабатывать от 3000€ в Европе.</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white p-5 rounded-xl shadow-sm border-l-4 border-transparent hover:border-primary transition-all">
+                    <div class="bg-red-50 p-2 rounded-full text-primary shrink-0"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                    <span class="text-lg text-gray-800 font-medium">Тем, кто ищет быструю востребованную профессию без долгого обучения.</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white p-5 rounded-xl shadow-sm border-l-4 border-transparent hover:border-primary transition-all">
+                    <div class="bg-red-50 p-2 rounded-full text-primary shrink-0"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                    <span class="text-lg text-gray-800 font-medium">Тем, кто хочет сменить работу на стабильную и понятную по доходу.</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white p-5 rounded-xl shadow-sm border-l-4 border-transparent hover:border-primary transition-all">
+                    <div class="bg-red-50 p-2 rounded-full text-primary shrink-0"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                    <span class="text-lg text-gray-800 font-medium">Тем, кто устал от низкооплачиваемых сезонных работ.</span>
+                </div>
+                <div class="flex items-center gap-4 bg-white p-5 rounded-xl shadow-sm border-l-4 border-transparent hover:border-primary transition-all">
+                    <div class="bg-red-50 p-2 rounded-full text-primary shrink-0"><i data-lucide="check-circle-2" class="w-5 h-5"></i></div>
+                    <span class="text-lg text-gray-800 font-medium">Тем, кто хочет открывать собственную сервисную нишу.</span>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center">
+                <button onclick="handleRedirect()" class="inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-10 py-3 text-lg bg-transparent border-2 border-primary text-primary hover:bg-red-50 active:scale-95">
+                    Смотреть видео бесплатно
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Facts -->
+    <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white relative overflow-hidden">
+        <!-- Blobs -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary opacity-10 blur-3xl rounded-full pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-blue-600 opacity-10 blur-3xl rounded-full pointer-events-none"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 max-w-3xl mx-auto leading-tight">
+                Почему <span class="text-primary">мастер окон</span> — одна из самых быстрорастущих профессий в Европе?
+            </h2>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Fact 1 -->
+                <div class="bg-gray-800/50 backdrop-blur border border-gray-700 p-6 rounded-2xl hover:bg-gray-800 transition-colors">
+                    <div class="text-primary mb-4"><i data-lucide="trending-up" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Рост установок</h3>
+                    <p class="text-gray-400">Рост количества установок окон и дверей.</p>
+                </div>
+                <!-- Fact 2 -->
+                <div class="bg-gray-800/50 backdrop-blur border border-gray-700 p-6 rounded-2xl hover:bg-gray-800 transition-colors">
+                    <div class="text-primary mb-4"><i data-lucide="users" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Дефицит кадров</h3>
+                    <p class="text-gray-400">Нехватка сертифицированных мастеров.</p>
+                </div>
+                <!-- Fact 3 -->
+                <div class="bg-gray-800/50 backdrop-blur border border-gray-700 p-6 rounded-2xl hover:bg-gray-800 transition-colors">
+                    <div class="text-primary mb-4"><i data-lucide="award" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Доходность</h3>
+                    <p class="text-gray-400">Высокая маржинальность услуг.</p>
+                </div>
+                <!-- Fact 4 -->
+                <div class="bg-gray-800/50 backdrop-blur border border-gray-700 p-6 rounded-2xl hover:bg-gray-800 transition-colors">
+                    <div class="text-primary mb-4"><i data-lucide="briefcase" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Свободная ниша</h3>
+                    <p class="text-gray-400">Низкая конкуренция в большинстве городов.</p>
+                </div>
+                <!-- Fact 5 -->
+                <div class="bg-gray-800/50 backdrop-blur border border-gray-700 p-6 rounded-2xl hover:bg-gray-800 transition-colors">
+                    <div class="text-primary mb-4"><i data-lucide="check-circle-2" class="w-8 h-8"></i></div>
+                    <h3 class="text-xl font-bold mb-2">Стабильность</h3>
+                    <p class="text-gray-400">Отсутствие сезонности.</p>
+                </div>
+                 
+                 <!-- CTA Card -->
+                 <div class="bg-primary p-6 rounded-2xl flex flex-col justify-center items-center text-center">
+                    <p class="text-white/90 font-medium mb-4">Узнайте все подробности в видео</p>
+                    <button onclick="handleRedirect()" class="bg-white text-primary px-6 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors w-full">
+                      Смотреть сейчас
+                    </button>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-12 gap-12 items-center">
+           <!-- Image Col -->
+           <div class="md:col-span-5 order-2 md:order-1 relative w-full">
+             <div class="absolute inset-0 bg-primary rounded-2xl transform translate-x-3 translate-y-3"></div>
+             <img src="https://images.unsplash.com/photo-1672748341520-6a839e6c05bb" alt="Инженер в каске" class="relative rounded-2xl shadow-xl w-full object-cover aspect-[3/4]">
+           </div>
+
+           <!-- Content Col -->
+           <div class="md:col-span-7 order-1 md:order-2 space-y-6">
+             <div class="inline-block bg-red-50 text-primary px-3 py-1 rounded-full text-sm font-bold tracking-wide">
+               О НАС
+             </div>
+             <h2 class="text-3xl md:text-4xl font-bold text-secondary">
+               Кто подготовил это видео и почему вам стоит слушать нас
+             </h2>
+             
+             <div class="space-y-4 text-gray-600 text-lg">
+               <p class="font-semibold text-secondary">
+                 SW.LAB — единственная в Европе сертифицированная школа мастеров по услугам сервиса окон.
+               </p>
+               <p>
+                 Мы начинали самостоятельно в Польше два года назад и стали лидерами рынка (более 25 000 обслуженных окон).
+               </p>
+               <ul class="space-y-3 mt-4">
+                 <li class="flex items-start gap-3">
+                   <div class="mt-1 bg-primary/10 p-1 rounded text-primary shrink-0"><i data-lucide="trending-up" class="w-4 h-4"></i></div>
+                   <span>Масштабирование от 1 города до 6 стран.</span>
+                 </li>
+                 <li class="flex items-start gap-3">
+                   <div class="mt-1 bg-primary/10 p-1 rounded text-primary shrink-0"><i data-lucide="alert-triangle" class="w-4 h-4"></i></div>
+                   <span>Совершили все возможные ошибки, чтобы передать вам чистую выжимку опыта и готовую бизнес-модель.</span>
+                 </li>
+               </ul>
+             </div>
+           </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="font-extrabold text-2xl tracking-tighter text-secondary block mb-6">
+                SW<span class="text-primary">.</span>LAB
+            </span>
+            <p class="text-gray-500 mb-8">© 2025 Все права защищены</p>
+            
+            <div class="max-w-md mx-auto">
+                <button onclick="handleRedirect()" class="w-full inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-6 py-4 text-lg bg-primary hover:bg-red-800 text-white shadow-xl shadow-red-100 active:scale-95">
+                    Получить доступ к видео
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Redirect Logic
+        function handleRedirect() {
+            window.location.href = "https://example.com/checkout";
+        }
+
+        // Sticky Header Logic
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-md', 'py-3');
+                header.classList.remove('py-5');
+            } else {
+                header.classList.remove('shadow-md', 'py-3');
+                header.classList.add('py-5');
+            }
+        });
+    </script>
+</body>
 </html>
