@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SW.LAB - Мастер Окон</title>
+    <meta name="description" content="Освойте профессию мастера окон за 30 дней и зарабатывайте от 3000€ в Европе">
     <meta name="theme-color" content="#B91C1C">
     
     <!-- Fonts -->
@@ -35,11 +36,35 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
     </style>
+
+    <!-- ========================================== -->
+    <!-- 🔥 ЗОНА ДЛЯ ТАРГЕТОЛОГА (FACEBOOK PIXEL) 🔥 -->
+    <!-- ========================================== -->
+    <script>
+        // ВАЖНО: Замените 'ВАШ_PIXEL_ID' на реальный ID пикселя (цифры)
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // ⬇️ Сюда вставить цифры ID вместо нулей ⬇️
+        fbq('init', '0000000000000000'); 
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=0000000000000000&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- ========================================== -->
+
 </head>
 <body class="bg-gray-50 text-gray-900 antialiased selection:bg-red-100 selection:text-red-900">
 
     <!-- Header -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white py-5">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white py-5 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <span class="font-extrabold text-2xl tracking-tighter text-secondary">
@@ -47,7 +72,8 @@
                 </span>
             </div>
             
-            <button onclick="handleRedirect()" class="group flex items-center gap-2 text-sm font-semibold text-secondary hover:text-primary transition-colors border-2 border-gray-200 hover:border-primary rounded-full px-4 py-2 cursor-pointer">
+            <!-- Кнопка Header -->
+            <button onclick="handleRedirect('Header_Top')" class="group flex items-center gap-2 text-sm font-semibold text-secondary hover:text-primary transition-colors border-2 border-gray-200 hover:border-primary rounded-full px-4 py-2 cursor-pointer">
                 <i data-lucide="play" class="w-4 h-4 fill-current"></i>
                 <span class="hidden sm:inline">Смотреть видео</span>
                 <span class="sm:hidden">Видео</span>
@@ -72,17 +98,19 @@
                 <!-- Mobile Image (Order 2 on Mobile) -->
                 <div class="order-2 md:hidden rounded-2xl overflow-hidden shadow-xl aspect-video relative group">
                     <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors"></div>
-                    <img src="https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg" alt="Мастер ремонтирует окно" class="w-full h-full object-cover">
+                    <!-- Фото: Мастер работает с белым окном -->
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop" alt="Мастер ремонтирует пластиковое окно" class="w-full h-full object-cover">
                 </div>
 
                 <!-- Subheadline (Order 3) -->
                 <p class="order-3 text-lg md:text-xl text-gray-600 leading-relaxed border-l-4 border-primary pl-4">
-                    Получите доступ к видео, где мы раскрываем реальный путь входа в востребованную профессию мастера окон, доходы, ошибки новичков и стратегию выхода на стабильный заработок.
+                    Получите доступ к бесплатному видео, где мы раскрываем реальный путь входа в востребованную профессию мастера окон, доходы, ошибки новичков и стратегию выхода на стабильный заработок.
                 </p>
 
                 <!-- CTA (Order 4) -->
                 <div class="order-4 space-y-3">
-                    <button onclick="handleRedirect()" class="w-full md:w-auto text-lg px-8 py-4 bg-primary hover:bg-red-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 shadow-red-200/50">
+                    <!-- Кнопка Hero -->
+                    <button onclick="handleRedirect('Hero_Main')" class="w-full md:w-auto text-lg px-8 py-4 bg-primary hover:bg-red-800 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 shadow-red-200/50">
                         Получить доступ к видео
                     </button>
                     <p class="text-xs text-gray-500 flex items-center gap-1 justify-center md:justify-start">
@@ -96,7 +124,8 @@
             <div class="hidden md:block relative">
                 <div class="absolute -inset-4 bg-primary/5 rounded-3xl transform rotate-3"></div>
                 <div class="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3] transform transition hover:-translate-y-1 duration-500">
-                    <img src="https://images.pexels.com/photos/5691503/pexels-photo-5691503.jpeg" alt="Мастер за работой" class="w-full h-full object-cover">
+                    <!-- Фото: Мастер работает с белым окном -->
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop" alt="Мастер за работой" class="w-full h-full object-cover">
                     <!-- Floating Badge -->
                     <div class="absolute bottom-6 left-6 bg-white/95 backdrop-blur shadow-lg rounded-xl p-4 flex items-center gap-3 max-w-xs">
                         <div class="bg-green-100 p-2 rounded-full text-green-600">
@@ -159,7 +188,8 @@
             </div>
 
             <div class="mt-12 text-center">
-                <button onclick="handleRedirect()" class="inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-10 py-4 text-lg bg-primary hover:bg-red-800 text-white shadow-lg hover:shadow-xl active:scale-95">
+                <!-- Кнопка Value Props -->
+                <button onclick="handleRedirect('ValueProps_Section')" class="inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-10 py-4 text-lg bg-primary hover:bg-red-800 text-white shadow-lg hover:shadow-xl active:scale-95">
                     Получить доступ к видео
                 </button>
             </div>
@@ -197,8 +227,9 @@
             </div>
 
             <div class="mt-10 text-center">
-                <button onclick="handleRedirect()" class="inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-10 py-3 text-lg bg-transparent border-2 border-primary text-primary hover:bg-red-50 active:scale-95">
-                    Смотреть видео
+                <!-- Кнопка Audience -->
+                <button onclick="handleRedirect('Audience_Section')" class="inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-10 py-3 text-lg bg-transparent border-2 border-primary text-primary hover:bg-red-50 active:scale-95">
+                    Смотреть видео бесплатно
                 </button>
             </div>
         </div>
@@ -250,7 +281,8 @@
                  <!-- CTA Card -->
                  <div class="bg-primary p-6 rounded-2xl flex flex-col justify-center items-center text-center">
                     <p class="text-white/90 font-medium mb-4">Узнайте все подробности в видео</p>
-                    <button onclick="handleRedirect()" class="bg-white text-primary px-6 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors w-full">
+                    <!-- Кнопка Market Facts -->
+                    <button onclick="handleRedirect('MarketFacts_Card')" class="bg-white text-primary px-6 py-2 rounded-lg font-bold hover:bg-gray-100 transition-colors w-full">
                       Смотреть сейчас
                     </button>
                  </div>
@@ -264,7 +296,8 @@
            <!-- Image Col -->
            <div class="md:col-span-5 order-2 md:order-1 relative w-full">
              <div class="absolute inset-0 bg-primary rounded-2xl transform translate-x-3 translate-y-3"></div>
-             <img src="https://images.unsplash.com/photo-1672748341520-6a839e6c05bb" alt="Инженер в каске" class="relative rounded-2xl shadow-xl w-full object-cover aspect-[3/4]">
+             <!-- Фото команды или процесса -->
+             <img src="https://images.unsplash.com/photo-1581094794329-cd1361ddee25?q=80&w=2127&auto=format&fit=crop" alt="Инженер SW.LAB" class="relative rounded-2xl shadow-xl w-full object-cover aspect-[3/4]">
            </div>
 
            <!-- Content Col -->
@@ -307,7 +340,8 @@
             <p class="text-gray-500 mb-8">© 2025 Все права защищены</p>
             
             <div class="max-w-md mx-auto">
-                <button onclick="handleRedirect()" class="w-full inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-6 py-4 text-lg bg-primary hover:bg-red-800 text-white shadow-xl shadow-red-100 active:scale-95">
+                <!-- Кнопка Footer -->
+                <button onclick="handleRedirect('Footer_Main')" class="w-full inline-flex items-center justify-center font-semibold transition-all duration-300 rounded-lg px-6 py-4 text-lg bg-primary hover:bg-red-800 text-white shadow-xl shadow-red-100 active:scale-95">
                     Получить доступ к видео
                 </button>
             </div>
@@ -316,15 +350,32 @@
 
     <!-- Scripts -->
     <script>
-        // Initialize Icons
+        // Инициализация иконок
         lucide.createIcons();
 
-        // Redirect Logic
-        function handleRedirect() {
-            window.location.href = "https://t.me/swlab_education_bot";
+        // Ссылка на бота
+        const BOT_LINK = "https://t.me/swlab_education_bot?start=69281cb2c52efce874087982";
+
+        // ЛОГИКА КНОПОК И ТРЕКИНГА
+        function handleRedirect(buttonLocation) {
+            console.log("Клик по кнопке в блоке:", buttonLocation);
+
+            // 1. Отправка события в Facebook Pixel (если он подключен)
+            if (typeof fbq === 'function') {
+                // Стандартное событие Лид (для оптимизации рекламы)
+                fbq('track', 'Lead');
+                
+                // Кастомное событие, чтобы знать КАКАЯ кнопка нажата (для аналитики)
+                fbq('trackCustom', 'ButtonPress', { location: buttonLocation });
+            }
+
+            // 2. Небольшая задержка перед переходом (чтобы скрипт успел сработать)
+            setTimeout(function() {
+                window.location.href = BOT_LINK;
+            }, 300);
         }
 
-        // Sticky Header Logic
+        // Логика липкого хедера
         const header = document.getElementById('main-header');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 20) {
